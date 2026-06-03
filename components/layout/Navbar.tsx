@@ -64,14 +64,14 @@ export default function Navbar() {
             : "bg-white border-b border-gray-100"
         )}
       >
-        <div className="container-site">
-          <div className="flex items-center justify-between h-16 md:h-[72px]">
+        <div className="container-site px-4">
+          <div className="flex items-center justify-between h-[60px] sm:h-[68px] md:h-[72px]">
 
             {/* ── LOGO AREA ── */}
-            <Link href="/" className="flex items-center flex-shrink-0 group">
+            <Link href="/" className="flex items-center flex-shrink-0">
 
-              {/* Bulan Sabit logo */}
-              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 flex-shrink-0">
+              {/* Bulan Sabit logo — besar di mobile */}
+              <div className="relative h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 flex-shrink-0">
                 <Image
                   src="/logo-bulan-sabit.jpg"
                   alt="Bulan Sabit Sumenep"
@@ -82,20 +82,20 @@ export default function Navbar() {
               </div>
 
               {/* Brand name */}
-              <div className="leading-none ml-2.5">
-                <div className="text-pmi-red font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+              <div className="leading-none ml-2 sm:ml-3">
+                <div className="text-pmi-red font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-[1.1]">
                   bulansabit
                 </div>
-                <div className="text-gray-900 font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+                <div className="text-gray-900 font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-[1.1]">
                   sumenep
                 </div>
               </div>
 
-              {/* Separator — tampil di semua ukuran */}
-              <div className="w-px h-9 bg-gray-200 mx-3 sm:mx-4 md:mx-5 flex-shrink-0" />
+              {/* Separator */}
+              <div className="w-px h-10 bg-gray-300 mx-3 sm:mx-4 md:mx-5 flex-shrink-0" />
 
-              {/* PMI logo — selalu tampil */}
-              <div className="relative h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 flex-shrink-0">
+              {/* PMI logo */}
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0">
                 <Image
                   src="/logo-pmi.jpg"
                   alt="Palang Merah Indonesia"
@@ -105,12 +105,12 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* PMI text — hanya tablet ke atas */}
-              <div className="leading-none ml-2 hidden sm:block">
-                <div className="text-gray-700 font-semibold text-[11px] md:text-xs leading-tight">
+              {/* PMI text — semua ukuran (kecil di mobile) */}
+              <div className="leading-none ml-2">
+                <div className="text-gray-700 font-semibold text-[10px] sm:text-[11px] md:text-xs leading-tight">
                   Palang Merah
                 </div>
-                <div className="text-gray-700 font-semibold text-[11px] md:text-xs leading-tight">
+                <div className="text-gray-700 font-semibold text-[10px] sm:text-[11px] md:text-xs leading-tight">
                   Indonesia
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function Navbar() {
             </nav>
 
             {/* ── RIGHT SIDE ── */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Link
                 href="/donor-darah"
                 className="hidden md:inline-flex btn-primary text-xs py-2 px-4"
@@ -181,12 +181,13 @@ export default function Navbar() {
                 Donor Darah
               </Link>
 
+              {/* Hamburger — lg:hidden, tampil jelas di mobile */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors text-gray-700"
+                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl hover:bg-gray-100 transition-colors text-gray-800"
                 aria-label="Toggle menu"
               >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
+                {isOpen ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
               </button>
             </div>
           </div>
