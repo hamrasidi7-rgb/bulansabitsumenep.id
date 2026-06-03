@@ -7,9 +7,7 @@ import DoctorContributors from "@/components/home/DoctorContributors";
 import VolunteerCTA from "@/components/home/VolunteerCTA";
 
 export const metadata: Metadata = {
-  title: "Beranda",
-  description:
-    "Portal Kesehatan dan Kemanusiaan. Berita kesehatan, edukasi medis, donor darah, relawan, dan aksi kemanusiaan dalam satu platform.",
+  title: "Portal Kesehatan & Kemanusiaan Sumenep",
 };
 
 export default function HomePage() {
