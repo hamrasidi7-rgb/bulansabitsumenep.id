@@ -81,14 +81,14 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* Brand name */}
-              <div className="leading-none ml-2 sm:ml-3">
-                <div className="text-pmi-red font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+              {/* Brand name — sumenep rapat ke bulansabit */}
+              <div className="ml-2 sm:ml-3 flex flex-col gap-0">
+                <span className="text-pmi-red font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-none block">
                   bulansabit
-                </div>
-                <div className="text-gray-900 font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+                </span>
+                <span className="text-gray-900 font-extrabold text-[17px] sm:text-lg md:text-xl tracking-tight leading-none block mt-[2px]">
                   sumenep
-                </div>
+                </span>
               </div>
 
               {/* Separator */}

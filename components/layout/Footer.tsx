@@ -31,7 +31,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 text-gray-300">
+    <footer className="bg-[#1e2433] text-gray-300">
       {/* CTA Banner */}
       <div className="bg-gradient-to-r from-pmi-red to-red-900 py-10">
         <div className="container-site flex flex-col md:flex-row items-center justify-between gap-6">
@@ -66,37 +66,28 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              {/* Bulan Sabit logo */}
+              {/* Bulan Sabit logo — sisakan logo saja */}
               <Image
                 src="/logo-bulan-sabit.jpg"
                 alt="Bulan Sabit Sumenep"
-                width={44}
-                height={44}
-                className="object-contain flex-shrink-0"
+                width={48}
+                height={48}
+                className="object-contain flex-shrink-0 rounded-lg"
               />
-              {/* Brand name */}
-              <div className="leading-none">
-                <div className="text-pmi-red font-extrabold text-xl tracking-tight leading-none">
-                  bulansabit
-                </div>
-                <div className="text-white font-extrabold text-xl tracking-tight leading-none">
-                  sumenep
-                </div>
-              </div>
               {/* Separator */}
               <div className="w-px h-10 bg-gray-600 mx-1 flex-shrink-0" />
               {/* PMI logo + label */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <Image
                   src="/logo-pmi.jpg"
                   alt="PMI"
-                  width={36}
-                  height={36}
-                  className="object-contain flex-shrink-0"
+                  width={38}
+                  height={38}
+                  className="object-contain flex-shrink-0 rounded-lg"
                 />
-                <div className="leading-none">
-                  <div className="text-gray-300 font-semibold text-xs leading-tight">Palang Merah</div>
-                  <div className="text-gray-300 font-semibold text-xs leading-tight">Indonesia</div>
+                <div className="leading-tight">
+                  <div className="text-gray-300 font-semibold text-xs">Palang Merah</div>
+                  <div className="text-gray-300 font-semibold text-xs">Indonesia</div>
                 </div>
               </div>
             </div>
