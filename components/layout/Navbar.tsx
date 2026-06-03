@@ -60,55 +60,69 @@ export default function Navbar() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
           scrolled
-            ? "nav-glass shadow-sm"
-            : "bg-white/98 border-b border-gray-100"
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+            : "bg-white border-b border-gray-100"
         )}
       >
         <div className="container-site">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo area */}
-            <Link href="/" className="flex items-center gap-2 md:gap-3 flex-shrink-0">
-              {/* Bulan Sabit Logo - KIRI */}
-              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
+          <div className="flex items-center justify-between h-16 md:h-[72px]">
+
+            {/* ── LOGO AREA ── */}
+            <Link href="/" className="flex items-center flex-shrink-0 group">
+
+              {/* Bulan Sabit logo */}
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 flex-shrink-0">
                 <Image
                   src="/logo-bulan-sabit.jpg"
-                  alt="Logo Bulan Sabit Sumenep"
+                  alt="Bulan Sabit Sumenep"
                   fill
-                  className="object-contain rounded-lg"
+                  className="object-contain"
                   priority
                 />
               </div>
 
-              {/* Center text — tampil di semua ukuran layar */}
-              <div className="flex flex-col items-center text-center leading-none px-0.5">
-                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-pmi-red tracking-[0.12em] uppercase whitespace-nowrap">
-                  PORTAL KESEHATAN
-                </span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-brand-secondary tracking-[0.12em] uppercase whitespace-nowrap">
-                  &amp; KEMANUSIAAN
-                </span>
-                <span className="hidden sm:block text-[7px] md:text-[8px] text-gray-400 tracking-wider mt-0.5 whitespace-nowrap">
-                  Kabupaten Sumenep
-                </span>
+              {/* Brand name */}
+              <div className="leading-none ml-2.5">
+                <div className="text-pmi-red font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+                  bulansabit
+                </div>
+                <div className="text-gray-900 font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-[1.1]">
+                  sumenep
+                </div>
               </div>
 
-              {/* PMI Logo - KANAN */}
-              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
+              {/* Separator — tampil di semua ukuran */}
+              <div className="w-px h-9 bg-gray-200 mx-3 sm:mx-4 md:mx-5 flex-shrink-0" />
+
+              {/* PMI logo — selalu tampil */}
+              <div className="relative h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 flex-shrink-0">
                 <Image
                   src="/logo-pmi.jpg"
-                  alt="Logo Palang Merah Indonesia"
+                  alt="Palang Merah Indonesia"
                   fill
-                  className="object-contain rounded-lg"
+                  className="object-contain"
                   priority
                 />
               </div>
+
+              {/* PMI text — hanya tablet ke atas */}
+              <div className="leading-none ml-2 hidden sm:block">
+                <div className="text-gray-700 font-semibold text-[11px] md:text-xs leading-tight">
+                  Palang Merah
+                </div>
+                <div className="text-gray-700 font-semibold text-[11px] md:text-xs leading-tight">
+                  Indonesia
+                </div>
+              </div>
+
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            {/* ── DESKTOP NAV ── */}
+            <nav className="hidden lg:flex items-center gap-0.5">
               {NAV_LINKS.slice(0, 7).map((link) => {
                 const hasDropdown = link.label in dropdownMenus;
-                const isActive = pathname === link.href ||
+                const isActive =
+                  pathname === link.href ||
                   (link.href !== "/" && pathname.startsWith(link.href));
 
                 return (
@@ -128,12 +142,14 @@ export default function Navbar() {
                       )}
                     >
                       {link.label}
-                      {hasDropdown && <ChevronDown size={13} className="opacity-60" />}
+                      {hasDropdown && (
+                        <ChevronDown size={12} className="opacity-50" />
+                      )}
                     </Link>
 
                     {/* Dropdown */}
                     {hasDropdown && activeDropdown === link.label && (
-                      <div className="absolute top-full left-0 mt-1 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 z-50">
+                      <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 z-50">
                         {dropdownMenus[link.label].map((item) => (
                           <Link
                             key={item.href}
@@ -155,7 +171,7 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* CTA + Mobile toggle */}
+            {/* ── RIGHT SIDE ── */}
             <div className="flex items-center gap-3">
               <Link
                 href="/donor-darah"
@@ -167,7 +183,7 @@ export default function Navbar() {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors"
+                className="lg:hidden p-2 rounded-xl hover:bg-gray-100 transition-colors text-gray-700"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -176,7 +192,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* ── MOBILE MENU ── */}
         {isOpen && (
           <div className="lg:hidden border-t border-gray-100 bg-white max-h-[80vh] overflow-y-auto">
             <div className="container-site py-4 space-y-1">
@@ -194,8 +210,22 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-3 pb-1">
-                <Link href="/donor-darah" className="btn-primary w-full justify-center text-sm">
+
+              {/* PMI info on mobile menu */}
+              <div className="flex items-center gap-2.5 px-4 py-3 mt-2 border-t border-gray-100">
+                <div className="relative h-7 w-7 flex-shrink-0">
+                  <Image src="/logo-pmi.jpg" alt="PMI" fill className="object-contain" />
+                </div>
+                <span className="text-xs text-gray-500 font-medium">
+                  Palang Merah Indonesia — Kab. Sumenep
+                </span>
+              </div>
+
+              <div className="pt-1 pb-1">
+                <Link
+                  href="/donor-darah"
+                  className="btn-primary w-full justify-center text-sm"
+                >
                   Daftar Donor Darah
                 </Link>
               </div>

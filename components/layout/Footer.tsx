@@ -66,31 +66,39 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              {/* Bulan Sabit - KIRI */}
+              {/* Bulan Sabit logo */}
               <Image
                 src="/logo-bulan-sabit.jpg"
                 alt="Bulan Sabit Sumenep"
-                width={40}
-                height={40}
-                className="rounded-lg object-contain bg-white p-1"
+                width={44}
+                height={44}
+                className="object-contain flex-shrink-0"
               />
-              <div className="text-center">
-                <div className="text-white font-extrabold text-xs leading-tight tracking-widest uppercase">
-                  PORTAL KESEHATAN
+              {/* Brand name */}
+              <div className="leading-none">
+                <div className="text-pmi-red font-extrabold text-xl tracking-tight leading-none">
+                  bulansabit
                 </div>
-                <div className="text-gray-300 font-extrabold text-xs leading-tight tracking-widest uppercase">
-                  &amp; KEMANUSIAAN
+                <div className="text-white font-extrabold text-xl tracking-tight leading-none">
+                  sumenep
                 </div>
-                <div className="text-gray-500 text-[10px] mt-0.5">Kabupaten Sumenep</div>
               </div>
-              {/* PMI - KANAN */}
-              <Image
-                src="/logo-pmi.jpg"
-                alt="PMI"
-                width={40}
-                height={40}
-                className="rounded-lg object-contain bg-white p-1"
-              />
+              {/* Separator */}
+              <div className="w-px h-10 bg-gray-600 mx-1 flex-shrink-0" />
+              {/* PMI logo + label */}
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/logo-pmi.jpg"
+                  alt="PMI"
+                  width={36}
+                  height={36}
+                  className="object-contain flex-shrink-0"
+                />
+                <div className="leading-none">
+                  <div className="text-gray-300 font-semibold text-xs leading-tight">Palang Merah</div>
+                  <div className="text-gray-300 font-semibold text-xs leading-tight">Indonesia</div>
+                </div>
+              </div>
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-5">
