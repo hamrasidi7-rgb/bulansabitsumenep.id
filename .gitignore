@@ -50,3 +50,5 @@ screenshot-full.mjs
 .idea/
 *.swp
 *.swo
+
+.vercel
