@@ -7,9 +7,9 @@ import DoctorContributors from "@/components/home/DoctorContributors";
 import VolunteerCTA from "@/components/home/VolunteerCTA";
 
 export const metadata: Metadata = {
-  title: "Beranda — Portal Kesehatan & Kemanusiaan Kabupaten Sumenep",
+  title: "Beranda",
   description:
-    "Edukasi Kesehatan, Aksi Kemanusiaan. Platform kesehatan masyarakat dan aktivitas kemanusiaan PMI Kabupaten Sumenep.",
+    "Portal Kesehatan dan Kemanusiaan. Berita kesehatan, edukasi medis, donor darah, relawan, dan aksi kemanusiaan dalam satu platform.",
 };
 
 export default function HomePage() {

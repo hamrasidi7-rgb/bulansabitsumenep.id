@@ -5,50 +5,66 @@ import SecondaryNav from "@/components/layout/SecondaryNav";
 import Footer from "@/components/layout/Footer";
 import AIAssistant from "@/components/ai/AIAssistant";
 
+const SITE_TITLE = "Bulan Sabit Sumenep";
+const SITE_DESCRIPTION =
+  "Portal Kesehatan dan Kemanusiaan. Berita kesehatan, edukasi medis, donor darah, relawan, dan aksi kemanusiaan dalam satu platform.";
+const SITE_URL = "https://bulansabitsumenep.id";
+const OG_IMAGE = "/og-image.jpg";
+
 export const metadata: Metadata = {
+  // ── <title> ──────────────────────────────────────────────
   title: {
-    default: "Bulan Sabit Sumenep — Portal Kesehatan & Kemanusiaan",
-    template: "%s | Bulan Sabit Sumenep",
+    default: SITE_TITLE,
+    template: `%s | ${SITE_TITLE}`,
   },
-  description:
-    "Portal Kesehatan & Kemanusiaan Kabupaten Sumenep. Menghadirkan edukasi kesehatan terpercaya dari dokter dan tenaga kesehatan serta informasi aksi kemanusiaan untuk masyarakat.",
+
+  // ── <meta name="description"> ────────────────────────────
+  description: SITE_DESCRIPTION,
+
+  // ── Keywords & authorship ────────────────────────────────
   keywords: [
-    "PMI Sumenep",
+    "Bulan Sabit Sumenep",
+    "portal kesehatan Sumenep",
+    "berita kesehatan Sumenep",
     "donor darah Sumenep",
-    "edukasi kesehatan",
-    "Portal Kesehatan Sumenep",
-    "kemanusiaan Sumenep",
+    "PMI Sumenep",
+    "edukasi medis",
     "relawan PMI",
-    "bulan sabit merah",
+    "aksi kemanusiaan",
     "kesehatan masyarakat",
   ],
   authors: [{ name: "PMI Kabupaten Sumenep" }],
   creator: "PMI Kabupaten Sumenep",
   publisher: "PMI Kabupaten Sumenep",
-  metadataBase: new URL("https://bulansabitsumenep.id"),
+  metadataBase: new URL(SITE_URL),
+
+  // ── Open Graph ───────────────────────────────────────────
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://bulansabitsumenep.id",
-    siteName: "Bulan Sabit Sumenep",
-    title: "Portal Kesehatan & Kemanusiaan Kabupaten Sumenep",
-    description:
-      "Edukasi Kesehatan, Aksi Kemanusiaan. Platform kesehatan masyarakat dan aktivitas kemanusiaan PMI Kabupaten Sumenep.",
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-image.jpg",
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Bulan Sabit Sumenep — Portal Kesehatan & Kemanusiaan",
+        alt: SITE_TITLE,
       },
     ],
   },
+
+  // ── Twitter Card ─────────────────────────────────────────
   twitter: {
     card: "summary_large_image",
-    title: "Bulan Sabit Sumenep — Portal Kesehatan & Kemanusiaan",
-    description: "Edukasi Kesehatan, Aksi Kemanusiaan. PMI Kabupaten Sumenep.",
-    images: ["/og-image.jpg"],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [OG_IMAGE],
   },
+
+  // ── Robots ───────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
@@ -60,6 +76,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
+  // ── PWA / Icons ──────────────────────────────────────────
   manifest: "/manifest.json",
   icons: {
     icon: [
