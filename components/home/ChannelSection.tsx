@@ -113,7 +113,7 @@ export default function ChannelSection() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-gray-50/60 py-14 md:py-20" ref={ref}>
+    <section className="bg-gray-50/60 pt-5 pb-12 md:pt-6 md:pb-16" ref={ref}>
       <div className="container-site">
 
         {/* Channel headers */}
