@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import SecondaryNav from "@/components/layout/SecondaryNav";
 import Footer from "@/components/layout/Footer";
 import AIAssistant from "@/components/ai/AIAssistant";
 
@@ -117,6 +118,7 @@ export default function RootLayout({
       </head>
       <body className="bg-white text-gray-900 antialiased">
         <Navbar />
+        <SecondaryNav />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <AIAssistant />
