@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, ChevronDown, Phone, Search } from "lucide-react";
 import { cn, NAV_LINKS } from "@/lib/utils";
 
 const dropdownMenus: Record<string, { href: string; label: string; desc: string }[]> = {
@@ -27,7 +27,21 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
+  const router = useRouter();
+
+  function handleSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const q = searchQuery.trim();
+    if (!q) return;
+    setSearchOpen(false);
+    setIsOpen(false);
+    router.push(`/berita?q=${encodeURIComponent(q)}`);
+    setSearchQuery("");
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -164,6 +178,25 @@ export default function Navbar() {
 
             {/* ── RIGHT SIDE ── */}
             <div className="flex items-center gap-2 sm:gap-3">
+
+              {/* Search box — md+ (samping logo PMI di tablet, di kanan nav di desktop) */}
+              <form onSubmit={handleSearch} className="hidden md:block">
+                <div className="relative">
+                  <Search
+                    size={14}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                  />
+                  <input
+                    ref={searchRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Cari berita..."
+                    className="w-36 lg:w-44 pl-8 pr-3 py-2 rounded-full bg-gray-100 border border-transparent hover:bg-gray-50 focus:bg-white focus:border-gray-200 focus:outline-none focus:w-52 lg:focus:w-56 text-sm text-gray-700 placeholder-gray-400 transition-all duration-300"
+                  />
+                </div>
+              </form>
+
               <Link
                 href="/donor-darah"
                 className="hidden md:inline-flex btn-primary text-xs py-2 px-4"
@@ -172,9 +205,18 @@ export default function Navbar() {
                 Donor Darah
               </Link>
 
-              {/* Hamburger — lg:hidden, tampil jelas di mobile */}
+              {/* Search icon — mobile only */}
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => { setSearchOpen(!searchOpen); setIsOpen(false); }}
+                className="md:hidden flex items-center justify-center w-9 h-9 rounded-xl hover:bg-gray-100 transition-colors text-gray-600"
+                aria-label="Cari"
+              >
+                <Search size={19} />
+              </button>
+
+              {/* Hamburger — lg:hidden */}
+              <button
+                onClick={() => { setIsOpen(!isOpen); setSearchOpen(false); }}
                 className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl hover:bg-gray-100 transition-colors text-gray-800"
                 aria-label="Toggle menu"
               >
@@ -183,6 +225,23 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        {/* ── MOBILE SEARCH PANEL ── */}
+        {searchOpen && (
+          <div className="md:hidden border-t border-gray-100 bg-white px-4 py-3">
+            <form onSubmit={handleSearch} className="relative">
+              <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+              <input
+                autoFocus
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Cari berita..."
+                className="w-full pl-9 pr-4 py-2.5 rounded-full bg-gray-100 border border-transparent focus:border-gray-200 focus:bg-white focus:outline-none text-sm text-gray-700 placeholder-gray-400 transition-all"
+              />
+            </form>
+          </div>
+        )}
 
         {/* ── MOBILE MENU ── */}
         {isOpen && (
