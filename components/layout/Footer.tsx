@@ -65,27 +65,25 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-5">
-              {/* Logo brand baru — dengan background putih halus */}
-              <div className="relative h-10 flex-shrink-0 bg-white/8 rounded-lg px-2 py-1"
-                   style={{ aspectRatio: "3.2/1" }}>
-                <Image
-                  src="/logo-brand.jpg"
-                  alt="bulansabit sumenep"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+            <div className="flex items-center gap-4 mb-5">
+              {/* Logo semula Bulan Sabit Sumenep (square) */}
+              <Image
+                src="/logo-bulan-sabit.jpg"
+                alt="Bulan Sabit Sumenep"
+                width={52}
+                height={52}
+                className="object-contain flex-shrink-0 rounded-xl"
+              />
               {/* Separator */}
-              <div className="w-px h-9 bg-gray-600 mx-2 flex-shrink-0" />
+              <div className="w-px h-10 bg-gray-600 flex-shrink-0" />
               {/* PMI logo + label */}
               <div className="flex items-center gap-2.5">
                 <Image
                   src="/logo-pmi.jpg"
                   alt="PMI"
-                  width={36}
-                  height={36}
-                  className="object-contain flex-shrink-0 bg-white/10 rounded-lg p-0.5"
+                  width={38}
+                  height={38}
+                  className="object-contain flex-shrink-0 rounded-lg"
                 />
                 <div className="leading-tight">
                   <div className="text-gray-300 font-semibold text-xs">Palang Merah</div>
