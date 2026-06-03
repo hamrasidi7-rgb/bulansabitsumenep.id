@@ -66,27 +66,30 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
+              {/* Bulan Sabit - KIRI */}
+              <Image
+                src="/logo-bulan-sabit.jpg"
+                alt="Bulan Sabit Sumenep"
+                width={40}
+                height={40}
+                className="rounded-lg object-contain bg-white p-1"
+              />
+              <div className="text-center">
+                <div className="text-white font-extrabold text-xs leading-tight tracking-widest uppercase">
+                  PORTAL KESEHATAN
+                </div>
+                <div className="text-gray-300 font-extrabold text-xs leading-tight tracking-widest uppercase">
+                  &amp; KEMANUSIAAN
+                </div>
+                <div className="text-gray-500 text-[10px] mt-0.5">Kabupaten Sumenep</div>
+              </div>
+              {/* PMI - KANAN */}
               <Image
                 src="/logo-pmi.jpg"
                 alt="PMI"
                 width={40}
                 height={40}
                 className="rounded-lg object-contain bg-white p-1"
-              />
-              <div>
-                <div className="text-white font-bold text-sm leading-tight">
-                  PORTAL KESEHATAN
-                </div>
-                <div className="text-gray-400 text-xs leading-tight">
-                  &amp; KEMANUSIAAN SUMENEP
-                </div>
-              </div>
-              <Image
-                src="/logo-bulan-sabit.jpg"
-                alt="Bulan Sabit Sumenep"
-                width={40}
-                height={40}
-                className="rounded-lg object-contain bg-white p-1 ml-1"
               />
             </div>
 

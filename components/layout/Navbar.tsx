@@ -67,36 +67,36 @@ export default function Navbar() {
         <div className="container-site">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo area */}
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              {/* PMI Logo - Left */}
-              <div className="relative h-10 w-10 md:h-12 md:w-12 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+              {/* Bulan Sabit Logo - KIRI */}
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
                 <Image
-                  src="/logo-pmi.jpg"
-                  alt="Logo Palang Merah Indonesia"
+                  src="/logo-bulan-sabit.jpg"
+                  alt="Logo Bulan Sabit Sumenep"
                   fill
                   className="object-contain rounded-lg"
                   priority
                 />
               </div>
 
-              {/* Center text */}
-              <div className="hidden sm:flex flex-col items-center text-center leading-none">
-                <span className="text-[10px] md:text-xs font-bold text-pmi-red tracking-widest uppercase">
+              {/* Center text — tampil di semua ukuran layar */}
+              <div className="flex flex-col items-center text-center leading-none px-0.5">
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-pmi-red tracking-[0.12em] uppercase whitespace-nowrap">
                   PORTAL KESEHATAN
                 </span>
-                <span className="text-[10px] md:text-xs font-bold text-brand-secondary tracking-widest uppercase">
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-brand-secondary tracking-[0.12em] uppercase whitespace-nowrap">
                   &amp; KEMANUSIAAN
                 </span>
-                <span className="text-[8px] text-gray-400 tracking-wider mt-0.5">
+                <span className="hidden sm:block text-[7px] md:text-[8px] text-gray-400 tracking-wider mt-0.5 whitespace-nowrap">
                   Kabupaten Sumenep
                 </span>
               </div>
 
-              {/* Bulan Sabit Logo - Right */}
-              <div className="relative h-10 w-10 md:h-12 md:w-12 flex-shrink-0">
+              {/* PMI Logo - KANAN */}
+              <div className="relative h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 flex-shrink-0">
                 <Image
-                  src="/logo-bulan-sabit.jpg"
-                  alt="Logo Bulan Sabit Sumenep"
+                  src="/logo-pmi.jpg"
+                  alt="Logo Palang Merah Indonesia"
                   fill
                   className="object-contain rounded-lg"
                   priority
