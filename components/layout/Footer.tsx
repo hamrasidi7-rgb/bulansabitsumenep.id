@@ -1,217 +1,130 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  MapPin, Phone, Mail, Instagram, Facebook, Youtube,
-  Heart, Shield, Clock, ArrowRight
-} from "lucide-react";
 
-const footerLinks = {
-  "Layanan": [
-    { href: "/donor-darah", label: "Donor Darah" },
-    { href: "/donor-darah/stok", label: "Stok Darah" },
-    { href: "/relawan", label: "Daftar Relawan" },
-    { href: "/kemanusiaan", label: "Aksi Kemanusiaan" },
-    { href: "/kontak", label: "Hubungi Kami" },
-  ],
-  "Edukasi": [
-    { href: "/edukasi/kesehatan-anak", label: "Kesehatan Anak" },
-    { href: "/edukasi/gizi", label: "Gizi & Nutrisi" },
-    { href: "/edukasi/kesehatan-mental", label: "Kesehatan Mental" },
-    { href: "/edukasi/pertolongan-pertama", label: "Pertolongan Pertama" },
-    { href: "/dokter-menulis", label: "Dokter Menulis" },
-  ],
-  "Tentang": [
-    { href: "/tentang", label: "Profil PMI" },
-    { href: "/tentang#sejarah", label: "Sejarah" },
-    { href: "/tentang#struktur", label: "Struktur Organisasi" },
-    { href: "/galeri", label: "Galeri Kegiatan" },
-    { href: "/berita", label: "Berita Kesehatan" },
-  ],
-};
+const socialLinks = [
+  {
+    href: "#",
+    label: "Facebook",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+  },
+  {
+    href: "#",
+    label: "Instagram",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    href: "#",
+    label: "X / Twitter",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
+  {
+    href: "#",
+    label: "YouTube",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+      </svg>
+    ),
+  },
+  {
+    href: "#",
+    label: "TikTok",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z" />
+      </svg>
+    ),
+  },
+];
+
+const footerLinks = [
+  { href: "/tentang",           label: "Tentang Kami" },
+  { href: "/tentang#struktur",  label: "Manajemen & Dewan Redaksi" },
+  { href: "/pedoman-media",     label: "Pedoman Media Siber" },
+  { href: "/kerjasama",         label: "Periklanan & Kerjasama" },
+  { href: "/faq",               label: "FAQ" },
+  { href: "/kebijakan-layanan", label: "Kebijakan Layanan" },
+  { href: "/privasi",           label: "Privasi Pengguna" },
+];
 
 export default function Footer() {
   return (
     <footer className="bg-[#1e2433] text-gray-300">
-      {/* CTA Banner */}
-      <div className="bg-gradient-to-r from-pmi-red to-red-900 py-10">
-        <div className="container-site flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl md:text-2xl font-bold text-white">
-              Jadilah Bagian dari Gerakan Kemanusiaan
-            </h3>
-            <p className="text-red-100 mt-1 text-sm">
-              Satu tetes darah Anda dapat menyelamatkan tiga nyawa.
-            </p>
-          </div>
-          <div className="flex gap-3 flex-shrink-0">
-            <Link
-              href="/donor-darah"
-              className="bg-white text-pmi-red px-6 py-3 rounded-full text-sm font-semibold hover:bg-red-50 transition-colors flex items-center gap-2"
-            >
-              <Heart size={15} className="fill-current" /> Donor Darah Sekarang
-            </Link>
-            <Link
-              href="/relawan"
-              className="border border-white/40 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors"
-            >
-              Jadi Relawan
-            </Link>
-          </div>
+      <div className="container-site py-10">
+
+        {/* Logos */}
+        <div className="flex items-center justify-center gap-4 mb-7">
+          <Image
+            src="/logo-bulan-sabit.jpg"
+            alt="Bulan Sabit Sumenep"
+            width={56}
+            height={56}
+            className="object-contain rounded-xl"
+          />
+          <div className="w-px h-10 bg-gray-600" />
+          <Image
+            src="/logo-pmi.jpg"
+            alt="Palang Merah Indonesia"
+            width={48}
+            height={48}
+            className="object-contain rounded-xl"
+          />
         </div>
-      </div>
 
-      {/* Main footer */}
-      <div className="container-site py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-5">
-              {/* Logo semula Bulan Sabit Sumenep (square) */}
-              <Image
-                src="/logo-bulan-sabit.jpg"
-                alt="Bulan Sabit Sumenep"
-                width={52}
-                height={52}
-                className="object-contain flex-shrink-0 rounded-xl"
-              />
-              {/* Separator */}
-              <div className="w-px h-10 bg-gray-600 flex-shrink-0" />
-              {/* PMI logo + label */}
-              <div className="flex items-center gap-2.5">
-                <Image
-                  src="/logo-pmi.jpg"
-                  alt="PMI"
-                  width={38}
-                  height={38}
-                  className="object-contain flex-shrink-0 rounded-lg"
-                />
-                <div className="leading-tight">
-                  <div className="text-gray-300 font-semibold text-xs">Palang Merah</div>
-                  <div className="text-gray-300 font-semibold text-xs">Indonesia</div>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-gray-400 text-sm leading-relaxed mb-5">
-              Platform kesehatan masyarakat dan aktivitas kemanusiaan yang
-              dikelola PMI Kabupaten Sumenep. Menghadirkan edukasi kesehatan
-              terpercaya dari dokter dan tenaga kesehatan.
-            </p>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              <span className="flex items-center gap-1.5 bg-gray-800 text-gray-300 text-xs px-3 py-1.5 rounded-full">
-                <Shield size={11} className="text-pmi-red" /> Terverifikasi PMI
-              </span>
-              <span className="flex items-center gap-1.5 bg-gray-800 text-gray-300 text-xs px-3 py-1.5 rounded-full">
-                <Heart size={11} className="text-pmi-red" /> Review Dokter
-              </span>
-              <span className="flex items-center gap-1.5 bg-gray-800 text-gray-300 text-xs px-3 py-1.5 rounded-full">
-                <Clock size={11} className="text-green-400" /> Update Real-time
-              </span>
-            </div>
-
-            {/* Social */}
-            <div className="flex gap-3">
-              {[
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Youtube, href: "#", label: "YouTube" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-9 h-9 rounded-full bg-gray-800 hover:bg-pmi-red flex items-center justify-center transition-colors"
-                >
-                  <Icon size={15} />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="text-white font-semibold text-sm mb-4">{category}</h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 text-sm hover:text-white transition-colors flex items-center gap-1.5 group"
-                    >
-                      <ArrowRight
-                        size={11}
-                        className="opacity-0 group-hover:opacity-100 -ml-2 group-hover:ml-0 transition-all text-pmi-red"
-                      />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Social media */}
+        <div className="flex items-center justify-center gap-3 mb-7">
+          {socialLinks.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              aria-label={s.label}
+              className="w-9 h-9 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-400 transition-colors"
+            >
+              {s.icon}
+            </a>
           ))}
         </div>
 
-        {/* Contact info */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-red-900/30 flex items-center justify-center flex-shrink-0">
-                <MapPin size={14} className="text-pmi-red" />
-              </div>
-              <div>
-                <div className="text-white text-xs font-medium mb-0.5">Alamat</div>
-                <div className="text-gray-400 text-xs">
-                  Jl. Dr. Cipto Mangunkusumo No. XX<br />
-                  Sumenep, Jawa Timur 69400
-                </div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-red-900/30 flex items-center justify-center flex-shrink-0">
-                <Phone size={14} className="text-pmi-red" />
-              </div>
-              <div>
-                <div className="text-white text-xs font-medium mb-0.5">Telepon</div>
-                <div className="text-gray-400 text-xs">
-                  (0328) 671-XXX<br />
-                  Hotline 24 Jam
-                </div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-red-900/30 flex items-center justify-center flex-shrink-0">
-                <Mail size={14} className="text-pmi-red" />
-              </div>
-              <div>
-                <div className="text-white text-xs font-medium mb-0.5">Email</div>
-                <div className="text-gray-400 text-xs">
-                  info@bulansabitsumenep.id<br />
-                  pmi.sumenep@pmi.or.id
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Horizontal links */}
+        <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-2 mb-7">
+          {footerLinks.map((link, i) => (
+            <span key={link.href} className="flex items-center gap-1">
+              <Link
+                href={link.href}
+                className="text-xs text-gray-400 hover:text-white transition-colors whitespace-nowrap"
+              >
+                {link.label}
+              </Link>
+              {i < footerLinks.length - 1 && (
+                <span className="text-gray-600 text-xs select-none">•</span>
+              )}
+            </span>
+          ))}
         </div>
-      </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-gray-800 py-5">
-        <div className="container-site flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-500">
-          <p>
-            © {new Date().getFullYear()} PMI Kabupaten Sumenep. Hak Cipta Dilindungi.
-          </p>
-          <div className="flex gap-5">
-            <Link href="/privasi" className="hover:text-gray-300 transition-colors">Kebijakan Privasi</Link>
-            <Link href="/syarat" className="hover:text-gray-300 transition-colors">Syarat Penggunaan</Link>
-            <Link href="/sitemap.xml" className="hover:text-gray-300 transition-colors">Sitemap</Link>
-          </div>
-          <p className="text-gray-600">
-            <span className="text-pmi-red">♥</span> Dibuat dengan cinta untuk masyarakat Sumenep
-          </p>
-        </div>
+        {/* Divider */}
+        <div className="border-t border-gray-700/60 mb-6" />
+
+        {/* Copyright */}
+        <p className="text-center text-xs text-gray-500">
+          Copyright © {new Date().getFullYear()} Bulan Sabit Sumenep • PMI Kabupaten Sumenep.
+          All rights reserved.
+        </p>
+
       </div>
     </footer>
   );
