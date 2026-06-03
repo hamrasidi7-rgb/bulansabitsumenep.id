@@ -1,0 +1,21 @@
+{
+  "name": "Bulan Sabit Sumenep — Portal Kesehatan & Kemanusiaan",
+  "short_name": "BulanSabit",
+  "description": "Portal Kesehatan & Kemanusiaan Kabupaten Sumenep oleh PMI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#D71920",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo-pmi.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical"],
+  "lang": "id",
+  "dir": "ltr"
+}
