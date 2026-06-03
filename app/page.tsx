@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HealthTicker from "@/components/HealthTicker";
 import ChannelSection from "@/components/home/ChannelSection";
 import ImpactDashboard from "@/components/home/ImpactDashboard";
 import BloodDonationSection from "@/components/home/BloodDonationSection";
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      {/* Ticker: statistik pendonor + headline berita — hover-to-pause */}
+      <HealthTicker
+        newsEndpoint="/api/berita-kesehatan"
+        stats={{ donors: 1248, bags: 873, month: "Juni 2026" }}
+      />
+
       <ChannelSection />
       <ImpactDashboard />
       <BloodDonationSection />
