@@ -7,7 +7,7 @@ import AIAssistant from "@/components/ai/AIAssistant";
 
 const BRAND = "Portal Kesehatan & Kemanusiaan Sumenep";
 const SITE_URL = "https://bulansabitsumenep.id";
-const OG_IMAGE = "/og-image.jpg";
+const OG_IMAGE = "/og-image.png";
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: BRAND,
     title: BRAND,
     description: BRAND,
-    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: BRAND }],
+    images: [{ url: OG_IMAGE, width: 1731, height: 909, alt: BRAND }],
   },
   twitter: {
     card: "summary_large_image",
